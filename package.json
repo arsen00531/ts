@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npx nodemon",
     "build": "tsc",
-    "start": "node build/main",
+    "start": "node ./build/main",
     "lint": "npx eslint ./src",
     "format": "npx eslint ./src --fix"
   },
