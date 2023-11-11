@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "npx nodemon",
-    "build": "npx tsc",
-    "start": "npm install && node build/main",
+    "build": "tsc",
+    "start": "node build/main",
     "lint": "npx eslint ./src",
     "format": "npx eslint ./src --fix"
   },
