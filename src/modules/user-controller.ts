@@ -12,6 +12,6 @@ export class userController {
         const q: QueryResult = await pool.query('SELECT * FROM users')
     
         console.log(q.rows)
-        res.render(path.join(__dirname, '../', 'index.ejs'), {lox: 'lox1'})
+        res.render('index.ejs', {lox: 'lox1'})
     }
 }

@@ -1,15 +1,9 @@
 import express from 'express';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
 import ejs from 'ejs';
+import { router } from './modules/user-router.js';
 const app = express();
-const PORT = 3000;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const PORT = process.env.PORT || 3000;
 app.engine('html', ejs.renderFile);
-app.set('view engine', 'ejs');
-app.get('/', (req, res) => {
-    res.render(path.join(__dirname, 'index.ejs'), { lox: 'lox' });
-});
-app.listen(PORT);
+app.use(router);
+app.listen(PORT, () => console.log(`Listen on PORT ${PORT}`));
 //# sourceMappingURL=main.js.map
