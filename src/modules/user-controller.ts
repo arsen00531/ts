@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { QueryResult } from 'pg';
 import { fileURLToPath } from 'url';
-import path, {dirname} from 'path'
+import {dirname} from 'path'
 import {pool} from './db.js'
 
 const __filename: string = fileURLToPath(import.meta.url);
@@ -10,13 +10,14 @@ const __dirname: string = dirname(__filename);
 export class userController {
     async getUsers(req: Request, res: Response) {
         const q: QueryResult = await pool.query('SELECT * FROM users')
-        console.log(q)
+        console.log(q.rows)
     
         res.render('index.ejs', {lox: 'lox1'})
     }
 
     async logup(req: Request, res: Response) {
-        console.log(req.body)
+        const {name, password}: {name: string, password: string} = req.body
+        console.log(name, password)
 
         // const user: QueryResult = await pool.query('INSERT INTO (name, password, time) VALUES ($1, $2, $3)', [name, password, '11:25'])
         // console.log(user)
