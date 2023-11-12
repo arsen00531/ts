@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "npx nodemon",
-    "build": "tsc",
+    "build": "rimraf ./build && tsc",
     "start": "node ./build/main",
     "lint": "npx eslint ./src",
     "format": "npx eslint ./src --fix"
@@ -28,6 +28,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
